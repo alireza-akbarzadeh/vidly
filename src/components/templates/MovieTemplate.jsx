@@ -1,15 +1,15 @@
 import React from "react";
 import { MoviePage } from "../pages";
 import Navbar from "../organisms/navbar";
-const Template = () => {
+const MovieTemplate = () => {
   return (
     <>
       <Navbar />
-      <main className={"container max-w-3xl mx-auto mt-5"}>
+      <main className={"min-h-screen"}>
         <MoviePage />
       </main>
     </>
   );
 };
 
-export default Template;
+export default MovieTemplate;

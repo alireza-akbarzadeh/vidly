@@ -16,13 +16,13 @@ const MoviesComponents = () => {
   return movies.length === 0 ? (
     <p className='text-gray-400 text-xl'>We don't have movie yet</p>
   ) : (
-    <>
-      <p className='capitalize text-md mb-4 font-semibold'>
+    <div className='container max-w-3xl mx-auto'>
+      <p className='capitalize text-md font-semibold'>
         currently we have <span className='font-bold '>{movies.length}</span>
         Movies
       </p>
       <MovieView handleDelete={handleDelete} movies={movies} />
-    </>
+    </div>
   );
 };
 
