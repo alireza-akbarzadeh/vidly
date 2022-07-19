@@ -1,6 +1,8 @@
-import Table, { THead, Tbody, Td, Th, Tr } from "../../atomes/table";
+import { Like } from "components/atomes";
+import Table, { THead, Tbody, Td, Th, Tr } from "../../molecules/table";
 
-const MovieView = ({ movies, handleDelete }) => {
+const MovieView = (props) => {
+  const { movies, handleDelete, count, handleLike } = props;
   return (
     <Table>
       <THead>
@@ -10,6 +12,10 @@ const MovieView = ({ movies, handleDelete }) => {
           <Th>Stock</Th>
           <Th>Rate</Th>
           <Th></Th>
+          <Th></Th>
+          <Th className='text-center'>
+            <span className='text-center text-lg'>{count}</span>
+          </Th>
         </Tr>
       </THead>
       <Tbody>
@@ -24,13 +30,17 @@ const MovieView = ({ movies, handleDelete }) => {
             <Td>{movie.genre.name}</Td>
             <Td>{movie.numberInStock}</Td>
             <Td>{movie.dailyRentalRate}</Td>
+            <Td>
+              <Like onSelect={handleLike} />
+            </Td>
+            <Td className='cursor-pointer'></Td>
             <Td className='text-right'>
               <button
                 onClick={() => handleDelete(movie._id)}
                 className='text-white bg-red-700
                  hover:bg-red-800 focus:outline-none
                   focus:ring-4 focus:ring-red-300 font-medium
-                rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600
+                rounded-full text-sm px-5 py-2 text-center mr-2 mb-1 dark:bg-red-600
                  dark:hover:bg-red-700 dark:focus:ring-red-900'
               >
                 Delete

@@ -1,12 +1,11 @@
 import React from "react";
-import { MoviePage } from "../pages";
-import Navbar from "../organisms/navbar";
+import { Navbar, Movies } from "../organisms";
 const MovieTemplate = () => {
   return (
     <>
       <Navbar />
       <main className={"min-h-screen"}>
-        <MoviePage />
+        <Movies />
       </main>
     </>
   );
