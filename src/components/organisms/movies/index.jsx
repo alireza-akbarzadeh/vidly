@@ -1,6 +1,7 @@
+import { Button, Like } from "components/atomes";
+import { Table } from "components/molecules";
 import List from "components/molecules/list";
 import Pagination from "../Pagination";
-import MovieView from "./movie.view";
 import useMovieController from "./useMovieController";
 
 const MoviesComponents = () => {
@@ -12,11 +13,25 @@ const MoviesComponents = () => {
     genres,
     filter,
     filtered,
+    sort,
+    setSort,
     handleDelete,
     handlePaginated,
     handleFilterMovie,
   } = useMovieController();
-
+  const columns = [
+    { path: "title", label: "Title" },
+    { path: "genre.name", label: "Genre" },
+    { path: "numberInStock", label: "Stock" },
+    { path: "dailyRentalRate", label: "Rate" },
+    { content: (movie) => <Like /> },
+    {
+      content: (movie) => (
+        <Button label={"Delete"} onClick={() => handleDelete(movie._id)} />
+      ),
+    },
+    {},
+  ];
   // @Jsx
   return movies.length === 0 ? (
     <p className='text-gray-400 text-xl'>We don't have movie yet</p>
@@ -30,12 +45,8 @@ const MoviesComponents = () => {
             items={genres}
           />
         </div>
-        <div className='col-span-2 '>
-          <MovieView
-            handleDelete={handleDelete}
-            movies={data}
-            count={filtered.length}
-          />
+        <div className='col-span-2'>
+          <Table setSort={setSort} sort={sort} columns={columns} data={data} />
           <Pagination
             currentPage={currentPage}
             pageSize={pageSize}
