@@ -1,22 +1,36 @@
-import React from "react";
-import {} from "../../../constant";
+import React, { useRef, useState } from "react";
+import * as Images from "constant/images";
+import { BsSun } from "react-icons/bs";
+import { RiMoonFill } from "react-icons/ri";
+import { useTheme } from "context/ThemeContext";
+import useOutsideClick from "hook/useOutSideClick";
+import { Menu } from "components/molecules";
 const Navbar = () => {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { mode, toggleTheme } = useTheme();
+  const handleOpenSearch = () => setIsSearchOpen((prev) => !prev);
+  const handleOpenMenu = () => setIsMenuOpen((prev) => !prev);
+  const ref = useRef(null);
+  const { isOutSide } = useOutsideClick(ref);
+
   return (
-    <>
-      <nav className='bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900'>
+    <header ref={ref}>
+      <nav className='bg-white border-gray-200 px-2 sm:px-4 py-2.5  dark:bg-gray-900 border-b dark:border-gray-800'>
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <a href='https://flowbite.com/' className='flex items-center'>
             <img
-              src='/docs/images/logo.svg'
+              src={Images.Logo}
               className='mr-3 h-6 sm:h-9'
               alt='Flowbite Logo'
             />
             <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
-              Flowbite
+              Vidly
             </span>
           </a>
-          <div className='flex md:order-2'>
+          <div className='flex gap-3 md:order-2'>
             <button
+              onClick={handleOpenSearch}
               type='button'
               data-collapse-toggle='navbar-search'
               aria-controls='navbar-search'
@@ -31,15 +45,15 @@ const Navbar = () => {
                 xmlns='http://www.w3.org/2000/svg'
               >
                 <path
-                  fill-rule='evenodd'
+                  fillRule='evenodd'
                   d='M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z'
-                  clip-rule='evenodd'
+                  clipRule='evenodd'
                 ></path>
               </svg>
               <span className='sr-only'>Search</span>
             </button>
             <div className='hidden relative md:block'>
-              <div className='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
+              <div className='flex absolute inset-y-0 left-0 items-center pl-3  pointer-events-none'>
                 <svg
                   className='w-5 h-5 text-gray-500'
                   aria-hidden='true'
@@ -48,9 +62,9 @@ const Navbar = () => {
                   xmlns='http://www.w3.org/2000/svg'
                 >
                   <path
-                    fill-rule='evenodd'
+                    fillRule='evenodd'
                     d='M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z'
-                    clip-rule='evenodd'
+                    clipRule='evenodd'
                   ></path>
                 </svg>
                 <span className='sr-only'>Search icon</span>
@@ -63,9 +77,10 @@ const Navbar = () => {
               />
             </div>
             <button
+              onClick={() => handleOpenMenu()}
               data-collapse-toggle='navbar-search'
               type='button'
-              className='inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
+              className='inline-flex items-center p-2 text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
               aria-controls='navbar-search'
               aria-expanded='false'
             >
@@ -78,11 +93,18 @@ const Navbar = () => {
                 xmlns='http://www.w3.org/2000/svg'
               >
                 <path
-                  fill-rule='evenodd'
+                  fillRule='evenodd'
                   d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z'
-                  clip-rule='evenodd'
+                  clipRule='evenodd'
                 ></path>
               </svg>
+            </button>
+            <button
+              className='inline-flex items-center p-1 px-3 text-sm text-gray-500 rounded-sm  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
+              type='button'
+              onClick={() => toggleTheme()}
+            >
+              {mode() === "light" ? <BsSun /> : <RiMoonFill color='#faf8f9' />}
             </button>
           </div>
           <div
@@ -99,9 +121,9 @@ const Navbar = () => {
                   xmlns='http://www.w3.org/2000/svg'
                 >
                   <path
-                    fill-rule='evenodd'
+                    fillRule='evenodd'
                     d='M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z'
-                    clip-rule='evenodd'
+                    clipRule='evenodd'
                   ></path>
                 </svg>
               </div>
@@ -112,37 +134,11 @@ const Navbar = () => {
                 placeholder='Search...'
               />
             </div>
-            <ul className='flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium'>
-              <li>
-                <a
-                  href='#'
-                  className='block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white'
-                  aria-current='page'
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  className='block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  className='block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
-                >
-                  Services
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
+        {isMenuOpen && <Menu handleOpenMenu={handleOpenMenu} />}
       </nav>
-    </>
+    </header>
   );
 };
 
