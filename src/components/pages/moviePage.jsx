@@ -1,7 +1,7 @@
-import { MovieTemplate } from "../templates";
+import { Movies } from "components/organisms";
 
 const MoviePage = () => {
-  return <MovieTemplate />;
+  return <Movies />;
 };
 
 export default MoviePage;

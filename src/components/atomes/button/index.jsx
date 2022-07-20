@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ label, ...rest }) => {
+const Button = ({ label, icon, ...rest }) => {
   return (
     <button
       className='
@@ -19,6 +19,7 @@ const Button = ({ label, ...rest }) => {
       {...rest}
     >
       {label}
+      {icon}
     </button>
   );
 };

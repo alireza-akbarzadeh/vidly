@@ -1,11 +1,14 @@
 import React from "react";
-import { Navbar, Movies } from "../organisms";
+import { Navbar } from "../organisms";
+import { Outlet } from "react-router-dom";
 const MovieTemplate = () => {
   return (
     <>
       <Navbar />
       <main className={"min-h-screen"}>
-        <Movies />
+        <div className='container mx-auto max-w-screen-2xl'>
+          <Outlet />
+        </div>
       </main>
     </>
   );
