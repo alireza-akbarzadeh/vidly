@@ -9,6 +9,7 @@ const useMovieController = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [genres, setGenre] = useState([]);
   const [filter, setFilter] = useState("");
+  const [search, setSearch] = useState("");
   const [sort, setSort] = useState({ path: "title", order: "asc" });
   useEffect(() => {
     const AddGenres = [{ name: "All Genre" }, ...getGenres()];
@@ -26,17 +27,27 @@ const useMovieController = () => {
   const handleFilterMovie = (sort) => {
     setFilter(sort);
     setCurrentPage(1);
+    setSearch("");
   };
+  const handleSearch = (val) => {
+    const search = sorted.filter((x) =>
+      x.title.toLowerCase().startsWith(val.toLowerCase())
+    );
+    setSearch(search);
+    setCurrentPage(1);
+  };
+
   // @filter
   const filtered =
-    filter && filter._id
-      ? movies.filter((m) => m.genre._id === filter._id)
+    filter && filter !== "All Genre"
+      ? movies.filter((m) => m.genre.name === filter)
       : movies;
   // @sort
   const sorted = _.orderBy(filtered, [sort.path], [sort.order]);
   // @sort
-  const data = paginate(sorted, currentPage, pageSize);
 
+  const finalData = search.length > 0 ? search : sorted;
+  const data = paginate(finalData, currentPage, pageSize);
   return {
     data,
     movies,
@@ -47,6 +58,7 @@ const useMovieController = () => {
     genres,
     handlePaginated,
     handleDelete,
+    handleSearch,
     handleFilterMovie,
     setSort,
     sort,

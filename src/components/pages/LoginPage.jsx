@@ -1,7 +1,8 @@
+import { Login } from "components/organisms";
 import React from "react";
 
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return <Login />;
 };
 
 export default LoginPage;

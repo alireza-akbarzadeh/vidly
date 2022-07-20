@@ -3,11 +3,25 @@ import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { Button } from "components/atomes";
 import { FaTimes } from "react-icons/fa";
 import { HiMenuAlt3 } from "react-icons/hi";
+import { HiHome } from "react-icons/hi";
+import {
+  RiMovie2Fill,
+  RiCustomerService2Fill,
+  RiLoginBoxFill,
+} from "react-icons/ri";
+import { AiFillShopping, AiOutlineLogin } from "react-icons/ai";
 const links = [
-  { name: "Home", to: "/", id: 1 },
-  { name: "Movie", to: "/movie", id: 2 },
-  { name: "Customer", to: "/customer", id: 3 },
-  { name: "Rentals", to: "/rentals", id: 4 },
+  { name: "Home", to: "/", id: 1, icons: <HiHome /> },
+  { name: "Movie", to: "/movie", id: 2, icons: <RiMovie2Fill /> },
+  {
+    name: "Customer",
+    to: "/customer",
+    id: 3,
+    icons: <RiCustomerService2Fill />,
+  },
+  { name: "Rentals", to: "/rentals", id: 4, icons: <AiFillShopping /> },
+  { name: "login", to: "/login", id: 5, icons: <RiLoginBoxFill /> },
+  { name: "register", to: "/register", id: 6, icons: <AiOutlineLogin /> },
 ];
 const itemVariants = {
   closed: {
@@ -56,15 +70,18 @@ export default function App() {
               exit='closed'
               variants={sideVariants}
             >
-              {links.map(({ name, to, id }) => (
+              {links.map(({ name, to, id, icons }) => (
                 <motion.a
-                  className='dark:text-gray-200 '
+                  className={`dark:text-gray-200 inline-flex gap-2 items-center relative ${
+                    id === 5 && "border-t  w-full pt-10 "
+                  }`}
                   onClick={() => cycleOpen()}
                   key={id}
                   href={to}
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={id !== 5 ? { scale: 1.1 } : { scale: 1 }}
                   variants={itemVariants}
                 >
+                  {icons}
                   {name}
                 </motion.a>
               ))}

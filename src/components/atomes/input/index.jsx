@@ -1,11 +1,9 @@
 import React from "react";
-import PropsTypes from "prop-types";
 const Input = ({
   helperText,
   label,
   placeholder = "Enter ...",
   status,
-  name = "text",
   type = "text",
   ...rest
 }) => {
@@ -45,7 +43,7 @@ const Input = ({
   return (
     <div className='my-4'>
       <label
-        htmlFor={name}
+        htmlFor={label}
         className={`block mb-2 text-sm font-medium capitalize ${text}`}
       >
         {label}
@@ -53,8 +51,6 @@ const Input = ({
       <input
         placeholder={placeholder}
         type={type}
-        id={name}
-        name={name}
         className={`
          ${classes}
          block

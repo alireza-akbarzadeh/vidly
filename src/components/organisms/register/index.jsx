@@ -2,15 +2,17 @@ import { Button, Input } from "components/atomes";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const Login = () => {
+const Register = () => {
   const formik = useFormik({
     initialValues: {
       username: "",
       password: "",
+      email: "",
     },
     validationSchema: Yup.object({
       username: Yup.string().required("User Name is Required"),
       password: Yup.string().required("Password  is Required"),
+      email: Yup.string().email().required("Email  is not Correct"),
     }),
     onSubmit: (values) => {
       console.log(values);
@@ -20,6 +22,18 @@ const Login = () => {
   return (
     <div className='flex items-center justify-center min-h-[80vh] w-full'>
       <form onSubmit={formik.handleSubmit} className='max-w-lg mx-auto w-full'>
+        <Input
+          placeholder='Enter Email'
+          label={"email"}
+          id='email'
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          onBlur={formik.handleBlur}
+          status={formik.touched.email && formik.errors.email && "error"}
+          helperText={
+            formik.touched.email && formik.errors.email && formik.errors.email
+          }
+        />
         <Input
           placeholder='Enter username'
           label={"username"}
@@ -48,10 +62,10 @@ const Login = () => {
             formik.errors.password
           }
         />
-        <Button type='submit' fullWidth label={"Login"} />
+        <Button type='submit' fullWidth label={"Register"} />
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Register;
