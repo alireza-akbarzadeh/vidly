@@ -22,20 +22,21 @@ const Popular = () => {
     isError,
     error,
   } = useFetchPopularMovies();
-  if (isLoading) return <Loading />;
+  if (isLoading) return <h1>Loading ..</h1>;
+  if (isError) return <h1>{error.message}</h1>;
   return (
     <>
       <InfiniteScroll
         loadMore={fetchNextPage}
-        className="grid grid-cols-4 md:grid-cols-12 "
+        className="grid grid-cols-4 md:grid-cols-12 justify-center "
         hasMore={hasNextPage}
       >
-        {data.pages.map((pageData) =>
+        {data?.pages.map((pageData) =>
           pageData.results.map((item) => (
             <div
               onClick={() => handleOpenModal(item.id)}
               key={item.id}
-              className={"col-span-3 relative group"}
+              className={"col-span-3 relative group "}
             >
               <Card
                 isHoverCard={false}

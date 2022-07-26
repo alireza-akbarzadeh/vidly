@@ -4,19 +4,23 @@ const Theme = createContext(null);
 
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
+  const [isSidebar, setIsSidebar] = useState(false);
   //@toggle Theme
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
     localStorage.setItem("mode", theme === "light" ? "dark" : "light");
   };
+
   function mode() {
     if (localStorage.getItem("mode") === null) return "light";
     return localStorage.getItem("mode");
   }
 
   return (
-    <Theme.Provider value={{ theme, setTheme, toggleTheme, mode }}>
+    <Theme.Provider
+      value={{ theme, setTheme, toggleTheme, mode, isSidebar, setIsSidebar }}
+    >
       {children}
     </Theme.Provider>
   );

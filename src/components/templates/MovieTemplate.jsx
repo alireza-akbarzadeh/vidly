@@ -5,8 +5,8 @@ import Sidebar from "../organisms/sidebar";
 
 const MovieTemplate = () => {
   return (
-    <div className={"grid gap-5 grid-cols-12 lg:px-7 px-2"}>
-      <div className={"w-full col-span-2"}>
+    <div className={"grid gap-5 lg:grid-cols-12 grid-cols-10 lg:px-7 px-2"}>
+      <div className={"w-full lg:col-span-2"}>
         <Sidebar />
       </div>
       <main className={"min-h-screen col-span-10"}>

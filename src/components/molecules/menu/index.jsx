@@ -3,13 +3,14 @@ import { motion, useCycle } from "framer-motion";
 import { HiHome } from "react-icons/hi";
 import { RiMovie2Fill, RiCustomerService2Fill } from "react-icons/ri";
 import { AiFillShopping, AiOutlinePlus } from "react-icons/ai";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import * as Images from "constant/images";
 import { TbSettingsAutomation, TbLogout } from "react-icons/tb";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { RiEditCircleFill } from "react-icons/ri";
 import { Avatar } from "constant/images";
 import { BsBookmarkFill } from "react-icons/bs";
+import { useTheme } from "../../../context/ThemeContext";
 const links = [
   {
     name: "Home",
@@ -71,9 +72,15 @@ const links = [
 export default function App() {
   const { pathname } = useLocation();
   const [open, cycleOpen] = useCycle(false, true);
+  const { setIsSidebar, isSidebar } = useTheme();
+
   return (
     <>
-      <motion.aside className="fixed min-h-screen border-r top-0 left-0 border-[rgba(255,255,255,0.1)] px-6 pt-8">
+      <motion.aside
+        className={` min-h-screen border-r top-0 left-0 border-[rgba(255,255,255,0.1)] px-6 pt-8  z-[9999] fixed ${
+          isSidebar ? "block bg-black" : "hidden lg:block"
+        }`}
+      >
         <div className={"flex flex-col justify-between h-[90vh]"}>
           <div>
             <Link to="/" className="flex items-center">
@@ -146,16 +153,16 @@ export default function App() {
                         }
                       `}
                 >
-                  <Link
+                  <a
                     className={`dark:text-gray-200 inline-flex gap-2 items-center relative  ${
                       to === pathname && ""
                     }`}
                     onClick={() => cycleOpen()}
-                    to={to}
+                    href={to}
                   >
                     {icons(to === pathname)}
                     {name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </motion.ul>

@@ -6,55 +6,26 @@ import useOutsideClick from "hook/useOutSideClick";
 import { useCycle } from "framer-motion";
 import { SiCircle } from "react-icons/si";
 import { FaFilter } from "react-icons/fa";
+import { Search } from "../../molecules";
+import { RiMenu3Line } from "react-icons/ri";
 
 const Navbar = ({ className }) => {
   const [open, cycleOpen] = useCycle(false, true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { mode, toggleTheme } = useTheme();
+  const { mode, toggleTheme, setIsSidebar } = useTheme();
   const handleOpenSearch = () => setIsSearchOpen((prev) => !prev);
   const handleOpenMenu = () => setIsMenuOpen((prev) => !prev);
   const ref = useRef(null);
   const { isOutSide } = useOutsideClick(ref);
-
   return (
     <header className={className} ref={ref}>
-      <nav className="px-2 sm:px-4 py-6 ">
-        <div className={"flex gap-5 items-center flex-row"}>
-          <div className={"relative grow"}>
-            <RiSearch2Line
-              fontSize={22}
-              className={"absolute  text-[rgba(255,255,255,0.3)] top-4 left-5"}
-            />
-            <input
-              placeholder={"Type to search"}
-              className={
-                "border rounded-3xl px-14 py-4 text-white border-[rgba(255,255,255,0.2)] bg-transparent w-full"
-              }
-              type="text"
-            />
-            <div
-              className={
-                "absolute text-[rgba(255,255,255,0.3)] top-5  top-0 right-5"
-              }
-            >
-              <span
-                className={
-                  "border-l absolute h-full right-10  border-[rgba(255,255,255,0.3)]"
-                }
-              />
-
-              <FaFilter fontSize={20} />
-            </div>
-          </div>
-          <button
-            className={
-              "border rounded-3xl px-8 py-4 text-white inline-flex gap-4 items-center border-[rgba(255,255,255,0.2)]"
-            }
-          >
-            <SiCircle />
-            Easy login by phone
-          </button>
+      <nav
+        className={`lg:px-2 inset-x-0 z-50 py-1 px-1 sm:px-4 lg:py-6 
+         fixed md:relative bottom-0 w-full  bg-gradient-to-r from-bgPrimary to-[#1c2536] `}
+      >
+        <div className={"flex gap-5 items-center justify-between flex-row"}>
+          <Search />
           <button
             className={
               "border rounded-full p-4 text-white border-[rgba(255,255,255,0.2)]"
@@ -69,6 +40,16 @@ const Navbar = ({ className }) => {
               }
             >
               <BsSun fontSize={22} />
+            </button>
+          </div>
+          <div className={"lg:hidden block"}>
+            <button
+              onClick={() => setIsSidebar((prev) => !prev)}
+              className={
+                "border rounded-full p-4 text-white border-[rgba(255,255,255,0.2)]"
+              }
+            >
+              <RiMenu3Line fontSize={22} />
             </button>
           </div>
         </div>
