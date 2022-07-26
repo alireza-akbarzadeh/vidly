@@ -1,16 +1,19 @@
 import React from "react";
 import { Navbar } from "../organisms";
 import { Outlet } from "react-router-dom";
+import Sidebar from "../organisms/sidebar";
+
 const MovieTemplate = () => {
   return (
-    <>
-      <Navbar />
-      <main className={"min-h-screen"}>
-        <div className='container mx-auto max-w-screen-2xl'>
-          <Outlet />
-        </div>
+    <div className={"grid gap-5 grid-cols-12 lg:px-7 px-2"}>
+      <div className={"w-full col-span-2"}>
+        <Sidebar />
+      </div>
+      <main className={"min-h-screen col-span-10"}>
+        <Navbar className={"col-span-3"} />
+        <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
-import { Movies } from "components/organisms";
+import { PopularMovie } from "../organisms/";
 
 const MoviePage = () => {
-  return <Movies />;
+  return <PopularMovie />;
 };
 
 export default MoviePage;
