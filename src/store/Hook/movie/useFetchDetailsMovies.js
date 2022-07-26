@@ -3,10 +3,7 @@ import { fetchDetailsMovie } from "services/api";
 import { queryKeys } from "constant/queryKeys";
 
 const useFetchDetailsMovies = (id) => {
-  const { data } = useQuery([queryKeys.movies, id], () =>
-    fetchDetailsMovie(id)
-  );
-  return data;
+  return useQuery([queryKeys.movies, id], () => fetchDetailsMovie(id));
 };
 
 export default useFetchDetailsMovies;

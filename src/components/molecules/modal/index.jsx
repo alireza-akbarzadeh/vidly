@@ -42,12 +42,11 @@ const Content = styled.div`
   position: relative;
   padding: 20px;
   box-sizing: border-box;
-  min-height: 50px;
-  min-width: 500px;
-  max-height: 80%;
-  max-width: 80%;
+  max-width: 1200px;
+  margin: 20px;
+  max-height: 100%;
   border-radius: 2px;
-  ${tw` bg-white shadow-md dark:bg-gray-900`}
+  ${tw`bg-white shadow-md dark:bg-gray-900`}
 `;
 
 const Modal = ({ onClose, open, locked, children }) => {
