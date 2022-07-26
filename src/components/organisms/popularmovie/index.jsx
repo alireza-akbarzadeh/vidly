@@ -1,16 +1,16 @@
 import React from "react";
-import { useFetchPopularMovies } from "store/Hook";
+import { useFetchPopularMovies, useFetchPopularVertical } from "store/Hook";
 import Slider from "react-slick";
 import Card from "../card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { useResponsive } from "../../../hook";
+import { useQuery } from "react-query";
 
 const PopularMovie = () => {
   const { width } = useResponsive();
-  const popular = useFetchPopularMovies();
-
+  const { data: popular } = useFetchPopularVertical();
   const settings = {
     infinite: true,
     speed: 500,

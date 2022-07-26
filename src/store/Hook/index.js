@@ -1,3 +1,6 @@
+import useFetchPopularVertical from "./movie/usePopular";
+
 export { default as useFetchMovies } from "./movie/useFetchMovies";
 export { default as useFetchPopularMovies } from "./movie/useFetchPopularMovies";
 export { default as useFetchDetailsMovies } from "./movie/useFetchDetailsMovies";
+export { default as useFetchPopularVertical } from "./movie/usePopular";

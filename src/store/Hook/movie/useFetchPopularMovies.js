@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 import { fetchPopularMovie } from "services/api";
 import { queryKeys } from "constant/queryKeys";
 

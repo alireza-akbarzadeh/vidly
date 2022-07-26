@@ -8,5 +8,4 @@ const fetchPopularMovie = async (pageParmas) => {
   });
   return res.data;
 };
-
 export default fetchPopularMovie;
