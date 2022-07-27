@@ -1,9 +1,8 @@
-import { Button, Select } from "components/atomes";
+import { Button } from "components/atomes";
 import { Input } from "components/atomes";
 import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { genres } from "services/fakeGenreService";
 import { useNavigate } from "react-router-dom";
 const MovieForm = () => {
   const navigate = useNavigate();
@@ -40,18 +39,6 @@ const MovieForm = () => {
             formik.touched.title && formik.errors.title && formik.errors.title
           }
         />
-        <Select
-          placeholder={"choose genre"}
-          onChange={formik.handleChange}
-          value={formik.values.genre}
-          onBlur={formik.handleBlur}
-          option={genres}
-          name='genre'
-          label={"Genre"}
-        />
-        {formik.touched.genre && formik.errors.genre ? (
-          <div className='text-red-400 font-medium'>{formik.errors.genre}</div>
-        ) : null}
         <Input
           placeholder='Enter numberInStock'
           label={"numberInStock"}

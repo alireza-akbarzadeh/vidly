@@ -43,11 +43,11 @@ const Content = styled.div`
   position: relative;
   padding: 20px;
   box-sizing: border-box;
-  max-width: 1200px;
   margin: 20px;
+  max-width: 1200px;
   max-height: 100%;
   border-radius: 1rem;
-  ${tw`bg-white shadow-md dark:bg-gray-900`}
+  ${tw`shadow-md dark:bg-gray-900`}
 `;
 
 const Modal = ({ onClose, open, locked, children }) => {
@@ -91,7 +91,9 @@ const Modal = ({ onClose, open, locked, children }) => {
     open && (
       <Portal className={"modal-portal"}>
         <Backdrop ref={backdrop} className={active && open && "active"}>
-          <Content className='modal-content'>{children}</Content>
+          <Content className='modal-content bg-gradient-to-r from-bgPrimary to-[#1c2536]'>
+            {children}
+          </Content>
         </Backdrop>
       </Portal>
     )

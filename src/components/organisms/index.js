@@ -7,3 +7,4 @@ export { default as Loading } from "./loading";
 export { default as PopularMovie } from "./popularmovie";
 export { default as SimilarMovie } from "./similarmovie";
 export { default as DetailsMovie } from "./detailsmovie";
+export { default as UpComingMovie } from "./upcoming/";

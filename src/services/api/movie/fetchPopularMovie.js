@@ -1,4 +1,3 @@
-import React from "react";
 import { http } from "../../httpService";
 
 const fetchPopularMovie = async (pageParmas) => {

@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 const SingleMoviePage = () => {
   const { id } = useParams();
   return (
-    <div>
-      <DetailsMovie id={id} />
+    <>
+      <DetailsMovie page='details' id={id} />
       <SimilarMovie id={id} />
-    </div>
+    </>
   );
 };
 

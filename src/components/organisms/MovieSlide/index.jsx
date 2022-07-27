@@ -95,6 +95,7 @@ const MovieSlide = ({ data, title }) => {
         {data?.map((item) => (
           <Card
             key={item.id}
+            id={item.id}
             title={item.original_title}
             img={item.poster_path}
             rate={item.vote_average}
