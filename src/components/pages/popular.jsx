@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFetchPopularMovies } from "store/Hook";
 import InfiniteScroll from "react-infinite-scroller";
 import DetailsModal from "components/organisms/detailsModal";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Popular = () => {
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(0);
@@ -28,12 +28,10 @@ const Popular = () => {
                 key={item.id}
                 className={"col-span-3 relative group"}
               >
-                <img
-                  className={
-                    "w-full h-full object-contain cursor-pointer rounded-2xl"
-                  }
-                  src={`${process.env.REACT_APP_API_IMG}/${item.poster_path}`}
+                <LazyLoadImage
+                  className='w-full h-full object-contain cursor-pointer rounded-2xl'
                   alt={item.title}
+                  src={`${process.env.REACT_APP_API_IMG}/${item.poster_path}`}
                 />
                 <div className='invisible opacity-0 group-hover:visible group-hover:opacity-100 overflow-hidden  transition-all ease-in-out duration-200'>
                   <div className=' flex justify-between w-full bg-[rgba(0,0,0,0.5)] py-2 rounded-tr-2xl rounded-tl-2xl px-6  items-center absolute top-0'>
