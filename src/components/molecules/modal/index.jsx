@@ -5,6 +5,7 @@ import tw from "twin.macro";
 
 const Backdrop = styled.div`
   position: fixed;
+  z-index: 99;
   top: 0;
   right: 0;
   bottom: 0;
@@ -45,7 +46,7 @@ const Content = styled.div`
   max-width: 1200px;
   margin: 20px;
   max-height: 100%;
-  border-radius: 2px;
+  border-radius: 1rem;
   ${tw`bg-white shadow-md dark:bg-gray-900`}
 `;
 
@@ -90,7 +91,7 @@ const Modal = ({ onClose, open, locked, children }) => {
     open && (
       <Portal className={"modal-portal"}>
         <Backdrop ref={backdrop} className={active && open && "active"}>
-          <Content className="modal-content">{children}</Content>
+          <Content className='modal-content'>{children}</Content>
         </Backdrop>
       </Portal>
     )

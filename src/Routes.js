@@ -10,6 +10,7 @@ import {
   Popular,
   Register,
   Rentals,
+  SingleMoviePage,
 } from "components/pages";
 
 const RouteProvider = ({ children }) => {
@@ -20,7 +21,7 @@ const RouteProvider = ({ children }) => {
       children: [
         { path: "/movies", element: <MoviePage /> },
         { path: "/movies/new", element: <MovieFormPage /> },
-        { path: "/movies/:slug", element: <MovieFormPage /> },
+        { path: "/movie/:id", element: <SingleMoviePage /> },
         { path: "/customer", element: <CustomerPage /> },
         { path: "/login", element: <LoginPage /> },
         { path: "/register", element: <Register /> },

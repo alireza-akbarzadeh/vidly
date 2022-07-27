@@ -3,7 +3,7 @@ import { motion, useCycle } from "framer-motion";
 import { HiHome } from "react-icons/hi";
 import { RiMovie2Fill, RiCustomerService2Fill } from "react-icons/ri";
 import { AiFillShopping, AiOutlinePlus } from "react-icons/ai";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import * as Images from "constant/images";
 import { TbSettingsAutomation, TbLogout } from "react-icons/tb";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
@@ -83,13 +83,13 @@ export default function App() {
       >
         <div className={"flex flex-col justify-between h-[90vh]"}>
           <div>
-            <Link to="/" className="flex items-center">
+            <Link to='/' className='flex items-center'>
               <img
                 src={Images.Logo}
-                className="mr-3 h-6 sm:h-9"
-                alt="Flowbite Logo"
+                className='mr-3 h-6 sm:h-9'
+                alt='Flowbite Logo'
               />
-              <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+              <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
                 Vidly
               </span>
             </Link>
@@ -142,9 +142,9 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <motion.ul className="flex items-start justify-start flex-col gap-3 mt-10">
+            <motion.ul className='flex items-start justify-start flex-col gap-3 mt-10'>
               {links.map(({ name, to, id, icons }) => (
-                <li
+                <motion.li
                   key={id}
                   className={`px-5 py-3 relative overflow-hidden
                         ${
@@ -153,17 +153,17 @@ export default function App() {
                         }
                       `}
                 >
-                  <a
+                  <Link
                     className={`dark:text-gray-200 inline-flex gap-2 items-center relative  ${
                       to === pathname && ""
                     }`}
                     onClick={() => cycleOpen()}
-                    href={to}
+                    to={to}
                   >
-                    {icons(to === pathname)}
+                    {icons()}
                     {name}
-                  </a>
-                </li>
+                  </Link>
+                </motion.li>
               ))}
             </motion.ul>
           </div>

@@ -8,6 +8,7 @@ import { SiCircle } from "react-icons/si";
 import { FaFilter } from "react-icons/fa";
 import { Search } from "../../molecules";
 import { RiMenu3Line } from "react-icons/ri";
+import styled from "styled-components";
 
 const Navbar = ({ className }) => {
   const [open, cycleOpen] = useCycle(false, true);
@@ -22,7 +23,7 @@ const Navbar = ({ className }) => {
     <header className={className} ref={ref}>
       <nav
         className={`lg:px-2 inset-x-0 z-50 py-1 px-1 sm:px-4 lg:py-6 
-         fixed md:relative bottom-0 w-full  bg-gradient-to-r from-bgPrimary to-[#1c2536] `}
+         fixed md:relative bottom-0 w-full`}
       >
         <div className={"flex gap-5 items-center justify-between flex-row"}>
           <Search />
