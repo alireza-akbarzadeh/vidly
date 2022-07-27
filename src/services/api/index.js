@@ -6,3 +6,4 @@ export { default as fetchReviewMovie } from "./movie/fetchReviewMovie";
 export { fetchUpComingMovie } from "./movie/fetchUpComingMovie";
 export { fetchUpComingMovieVertical } from "./movie/fetchUpComingMovie";
 export { default as fetchVideos } from "./movie/fetchVideos";
+export { default as searchMovie } from "./movie/searchMovie";

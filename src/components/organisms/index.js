@@ -10,3 +10,4 @@ export { default as DetailsMovie } from "./detailsmovie";
 export { default as UpComingMovie } from "./upcoming";
 export { default as ReviewMovie } from "./reviewMovie";
 export { default as Videos } from "./videos";
+export { default as EffectMovie } from "./effectMovie";

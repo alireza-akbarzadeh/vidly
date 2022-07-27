@@ -29,7 +29,7 @@ const Navbar = ({ className }) => {
           <Search />
           <button
             className={
-              "border rounded-full p-4 text-white border-[rgba(255,255,255,0.2)]"
+              "border rounded-full p-4  text-white border-[rgba(255,255,255,0.2)]"
             }
           >
             <RiNotification3Fill fontSize={22} />
