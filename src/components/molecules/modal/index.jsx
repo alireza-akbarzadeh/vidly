@@ -43,10 +43,11 @@ const Content = styled.div`
   position: relative;
   padding: 20px;
   box-sizing: border-box;
-  margin: 20px;
+  margin: 5px;
   max-width: 1200px;
   max-height: 100%;
   border-radius: 1rem;
+  overflow-y: auto;
   ${tw`shadow-md dark:bg-gray-900`}
 `;
 
