@@ -4,6 +4,7 @@ import MovieSlide from "../MovieSlide";
 
 const SimilarMovie = ({ id }) => {
   const { data, isLoading } = useSimilarMovie(id);
+
   return !isLoading && <MovieSlide title='Similar Movie' data={data.results} />;
 };
 

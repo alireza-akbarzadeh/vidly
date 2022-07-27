@@ -3,4 +3,6 @@ export const queryKeys = {
   popular: "popular",
   similar: "similar",
   upcoming: "upcoming",
+  review: "review",
+  videos: "videos",
 };
