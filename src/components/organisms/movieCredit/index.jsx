@@ -1,13 +1,14 @@
-import { useResponsive } from "hook";
 import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Slider from "react-slick";
 import { useFetchMoviesCredit } from "store/Hook";
+import { useMediaQuery } from "react-responsive";
 
 const MovieCredit = ({ id }) => {
   const { data, isLoading } = useFetchMoviesCredit(id);
-  const { width } = useResponsive();
+  const isBigScreen = useMediaQuery({ query: "(min-width: 1130px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
   const SampleNextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -46,9 +47,9 @@ const MovieCredit = ({ id }) => {
     autoplay: true,
     speed: 3500,
     pauseOnHover: true,
-    slidesToShow: 2,
+    slidesToShow: isMobile ? 3 : 5,
     slidesToScroll: 4,
-    vertical: width < 700,
+    vertical: isBigScreen,
     verticalSwiping: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -61,10 +62,7 @@ const MovieCredit = ({ id }) => {
         </h3>
         <Slider {...settings}>
           {data?.cast?.map((item) => (
-            <div
-              className='flex  flex-col md:flex-row  items-center gap-3 cursor-pointer'
-              key={item.id}
-            >
+            <div className='cursor-pointer' key={item.id}>
               <div className='w-28 h-28 mt-8'>
                 <LazyLoadImage
                   className={"w-full h-full object-cover  rounded-full"}

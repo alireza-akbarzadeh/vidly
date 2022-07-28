@@ -33,8 +33,8 @@ const SingleMovieDetails = ({ id }) => {
             </>
           )}
         </div>
-        <div className='grid md:grid-cols-12 grid-cols-3  gap-16  px-4'>
-          <div className='col-span-3 text-white order-2'>
+        <div className='flex flex-col xl:flex-row  gap-10  px-4'>
+          <div className='w-[400px]  text-white order-2 md:order-1'>
             <div className='w-full h-300px'>
               <LazyLoadImage
                 className={"w-full h-full object-cover  rounded-2xl"}
@@ -66,7 +66,7 @@ const SingleMovieDetails = ({ id }) => {
               </div>
             </div>
           </div>
-          <div className='col-span-7'>
+          <div className='flex-grow xl:order-2'>
             <ul className='space-y-4'>
               <li>
                 <h2 className='text-white font-semibold text-xl md:text-2xl'>
@@ -81,9 +81,9 @@ const SingleMovieDetails = ({ id }) => {
                 <span>Release Data : </span>
                 <span>{data.release_date}</span>
               </li>
-              <li className='flex items-center gap-10'>
+              <li className='flex items-center gap-10 flex-wrap'>
                 <div>
-                  <button className='bg-bgSameColor inline-flex items-center gap-2 rounded-2xl text-gray-200 font-semibold px-4 py-3'>
+                  <button className='bg-bgSameColor inline-flex items-center gap-2 rounded-2xl text-gray-200 font-semibold px-4 whitespace-nowrap py-3'>
                     Watch trailer
                     <BsPlay fontSize={22} color='#faf8f9' />
                   </button>
@@ -114,9 +114,11 @@ const SingleMovieDetails = ({ id }) => {
               Details
             </h5>
             <ul className='space-y-5'>
-              <li className='border-b border-[rgba(255,255,255,0.3)] mt-6 pb-6 flex justify-between items-center'>
-                <span className='text-gray-300 font-semibold'>Genres</span>
-                <p>
+              <li className='border-b border-[rgba(255,255,255,0.3)] mt-6 pb-6 flex justify-between items-center flex-wrap'>
+                <span className='text-gray-300 font-semibold mb-1 md:mb-0'>
+                  Genres
+                </span>
+                <p className='flex justify-start md:justify-between gap-3 items-center flex-wrap'>
                   {data?.genres?.map((genre) => (
                     <span
                       className='bg-[#454e50] rounded-3xl mr-3 text-white px-3 py-2'
@@ -158,7 +160,7 @@ const SingleMovieDetails = ({ id }) => {
               </li>
             </ul>
           </div>
-          <div className='col-span-2 order-[-1]'>
+          <div className='w-full xl:w-[200px] order-[-1] xl:order-3'>
             <MovieCredit id={id} />
           </div>
         </div>
