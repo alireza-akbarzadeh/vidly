@@ -4,7 +4,7 @@ import MovieSlide from "../MovieSlide";
 
 const PopularMovie = () => {
   const { data: popular, isLoading } = useFetchPopularVertical();
-
+  console.log(popular, "popular");
   return (
     !isLoading && <MovieSlide title={"popular Movie"} data={popular.results} />
   );

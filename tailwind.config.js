@@ -11,6 +11,7 @@ module.exports = {
         darkRedPrimary: "#b01935",
         garyPrimary: "#adb0A5",
         blackPrimary: "#06080b",
+        bgSameColor: "#ff515a",
       },
       screens: {
         xss: "150px",

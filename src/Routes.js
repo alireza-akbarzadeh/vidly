@@ -12,6 +12,7 @@ import {
   Rentals,
   SingleMoviePage,
   SearchResult,
+  Celeb,
 } from "components/pages";
 
 const RouteProvider = ({ children }) => {
@@ -29,6 +30,7 @@ const RouteProvider = ({ children }) => {
         { path: "/register", element: <Register /> },
         { path: "/rentals", element: <Rentals /> },
         { path: "/favorite", element: <Favorite /> },
+        { path: "/celeb", element: <Celeb /> },
         { path: "/movie/popular", element: <Popular /> },
         { path: "/", element: <HomePage /> },
         { path: "*", element: <p>Not Found</p> },

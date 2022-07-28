@@ -7,3 +7,5 @@ export { default as useUpComingMovieVertical } from "./movie/useUpComingMovie";
 export { default as useFetchReviewMovie } from "./movie/useFetchReviewMovie";
 export { default as useFetchVideos } from "./movie/useFetchVideos";
 export { default as useSearchMovie } from "./movie/useSearchMovie";
+export { default as useFetchMoviesCredit } from "./movie/useFetchMovieCredit";
+export { default as useFetchPerson } from "./person/useFetchPerson";

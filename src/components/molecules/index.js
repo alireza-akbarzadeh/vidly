@@ -6,3 +6,4 @@ export { default as TableBody } from "./tablebody";
 export { default as Modal } from "./modal";
 export { default as Search } from "./search";
 export { default as UserInfo } from "./userInfo";
+export { default as CircleProgress } from "./circleProgress";

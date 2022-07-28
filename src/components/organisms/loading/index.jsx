@@ -9,7 +9,7 @@ const Loading = () => {
     <div
       className={`fixed top-[50%] left-[50%] z-[999999] translate-x-[-50%] translate-y-[-50%] `}
     >
-      <ScaleLoader color='rgb(60,179,113)' />
+      <ScaleLoader color='#ff515a' />
     </div>
   ) : (
     <div style={{ display: "none" }} />

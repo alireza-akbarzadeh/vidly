@@ -11,3 +11,5 @@ export { default as UpComingMovie } from "./upcoming";
 export { default as ReviewMovie } from "./reviewMovie";
 export { default as Videos } from "./videos";
 export { default as EffectMovie } from "./effectMovie";
+export { default as MovieCredit } from "./movieCredit";
+export { default as SingleMovieDetails } from "./singleMovieDetails";

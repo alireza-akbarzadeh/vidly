@@ -9,3 +9,4 @@ export { default as Rentals } from "./Rentals";
 export { default as Favorite } from "./favorite";
 export { default as Popular } from "./popular";
 export { default as SearchResult } from "./SearchResult";
+export { default as Celeb } from "./Celeb";

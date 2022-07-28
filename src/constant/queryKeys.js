@@ -6,4 +6,6 @@ export const queryKeys = {
   review: "review",
   videos: "videos",
   search: "search",
+  person: "person",
+  credit: "credit",
 };
