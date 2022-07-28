@@ -15,7 +15,7 @@ const UserInfo = () => {
           <div className={"relative"}>
             <img
               src={Avatar}
-              className={"rounded-full w-12 "}
+              className={"rounded-full w-12"}
               alt={"Alireza Akbarzadeh"}
             />
             <RiEditCircleFill
