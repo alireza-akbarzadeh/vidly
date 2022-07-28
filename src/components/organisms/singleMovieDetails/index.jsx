@@ -5,8 +5,9 @@ import { useFetchDetailsMovies } from "store/Hook";
 import { MovieCredit, Videos } from "..";
 import { FaPlay } from "react-icons/fa";
 import { BsBookmark, BsHeart, BsPlay, BsShare } from "react-icons/bs";
+import { MdOutlineReviews } from "react-icons/md";
 
-const SingleMovieDetails = ({ id }) => {
+const SingleMovieDetails = ({ id, setIsReview }) => {
   const [playTrailer, setPlayTrailer] = useState(false);
   const { data, isLoading } = useFetchDetailsMovies(id);
   return (
@@ -34,7 +35,7 @@ const SingleMovieDetails = ({ id }) => {
           )}
         </div>
         <div className='flex flex-col xl:flex-row  gap-10  px-4'>
-          <div className='w-[400px]  text-white order-2 md:order-1'>
+          <div className='w-[400px]  text-white order-2 md:order-1 hidden lg:block'>
             <div className='w-full h-300px'>
               <LazyLoadImage
                 className={"w-full h-full object-cover  rounded-2xl"}
@@ -81,9 +82,12 @@ const SingleMovieDetails = ({ id }) => {
                 <span>Release Data : </span>
                 <span>{data.release_date}</span>
               </li>
-              <li className='flex items-center gap-10 flex-wrap'>
+              <li className='flex items-center gap-10 overflow-auto pb-4'>
                 <div>
-                  <button className='bg-bgSameColor inline-flex items-center gap-2 rounded-2xl text-gray-200 font-semibold px-4 whitespace-nowrap py-3'>
+                  <button
+                    onClick={() => setPlayTrailer(true)}
+                    className='bg-bgSameColor inline-flex items-center gap-2 rounded-2xl text-gray-200 font-semibold px-4 whitespace-nowrap py-3'
+                  >
                     Watch trailer
                     <BsPlay fontSize={22} color='#faf8f9' />
                   </button>
@@ -110,15 +114,15 @@ const SingleMovieDetails = ({ id }) => {
                 </p>
               </li>
             </ul>
-            <h5 className='text-white text-lg lg-text-3xl font-semibold mt-6'>
+            <h5 className='text-white text-lg lg-text-3xl font-semibold mt-6 mr-2 lg:mr-0'>
               Details
             </h5>
             <ul className='space-y-5'>
-              <li className='border-b border-[rgba(255,255,255,0.3)] mt-6 pb-6 flex justify-between items-center flex-wrap'>
-                <span className='text-gray-300 font-semibold mb-1 md:mb-0'>
+              <li className='border-b border-[rgba(255,255,255,0.3)] mt-6 pb-6 flex flex-col lg:flex-row items-start justify-start lg:justify-between lg:items-center overflow-auto '>
+                <span className='text-gray-300 mr-2 lg:mr-0  font-semibold mb-3 md:mb-0'>
                   Genres
                 </span>
-                <p className='flex justify-start md:justify-between gap-3 items-center flex-wrap'>
+                <p className='flex justify-start md:justify-between gap-3 items-center overflow-auto'>
                   {data?.genres?.map((genre) => (
                     <span
                       className='bg-[#454e50] rounded-3xl mr-3 text-white px-3 py-2'
@@ -163,6 +167,13 @@ const SingleMovieDetails = ({ id }) => {
           <div className='w-full xl:w-[200px] order-[-1] xl:order-3'>
             <MovieCredit id={id} />
           </div>
+        </div>
+        <div
+          onClick={() => setIsReview((prev) => !prev)}
+          className=' bg-gradient-to-tr from-red-400 to-bgSameColor text-white rounded-lg my-6 py-3 flex items-center px-4 justify-between'
+        >
+          <button className='w-full h-full'>Show Review</button>
+          <MdOutlineReviews fontSize={30} />
         </div>
       </>
     )

@@ -57,24 +57,24 @@ const MovieCredit = ({ id }) => {
   return (
     !isLoading && (
       <>
-        <h3 className='text-gray-100 text-font-semibold text-xl mb-6'>
+        <h3 className='text-gray-100 text-font-semibold text-xl mb-6 mt-5 lg:mt-0'>
           Cast & Crew
         </h3>
         <Slider {...settings}>
           {data?.cast?.map((item) => (
             <div className='cursor-pointer' key={item.id}>
-              <div className='w-28 h-28 mt-8'>
+              <div className='w-14 h-14 lg:w-28 lg:h-28  mt-8'>
                 <LazyLoadImage
                   className={"w-full h-full object-cover  rounded-full"}
                   alt={item.name}
                   src={`${process.env.REACT_APP_API_IMG}/${item.profile_path}`}
                 />
               </div>
-              <div>
-                <h4 className='text-gray-300 text-font-semibold mt-1 whitespace-nowrap'>
+              <div className='text-white'>
+                <h4 className='text-gray-300 text-font-semibold mt-1 whitespace-nowrap text-xs md:text-base'>
                   {item.name}
                 </h4>
-                <h4 className='text-gray-300 text-font-semibold mt-1 whitespace-nowrap'>
+                <h4 className='text-gray-300 text-font-semibold mt-1 whitespace-nowrap text-xs md:text-base'>
                   {item.character}
                 </h4>
               </div>
@@ -85,7 +85,7 @@ const MovieCredit = ({ id }) => {
               className='flex flex-col md:flex-row  items-center gap-5 cursor-pointer'
               key={item.id}
             >
-              <div className='w-28 h-28 mt-8'>
+              <div className=' w-14 h-14 lg:w-28 lg:h-28  mt-8'>
                 <LazyLoadImage
                   className={"w-full h-full object-cover  rounded-full"}
                   alt={item.name}
