@@ -3,15 +3,16 @@ import { RiSearch2Line } from "react-icons/ri";
 import { FaFilter, FaTimes } from "react-icons/fa";
 import { searchMovie } from "services/api";
 import { useMovie } from "context/MovieContext";
+import { useNavigate } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ setIsSearchOpen, isSearchOpen }) => {
   const [query, setQuery] = useState("");
   const { setSearch } = useMovie();
-
+  const navigate = useNavigate();
   const handleSearch = (e) => {
     e.preventDefault();
     if (query) {
-      searchMovie(query).then((res) => setSearch(res));
+      navigate(`/movie/search/${query}`);
     }
   };
   const handleCleanSearch = () => {
@@ -20,7 +21,10 @@ const Search = () => {
   };
   return (
     <>
-      <div className={"relative grow shrink hidden sm:block"}>
+      <div
+        style={isSearchOpen ? { display: "block" } : {}}
+        className={`relative grow shrink hidden  md:block `}
+      >
         <RiSearch2Line
           fontSize={22}
           className={"absolute  text-[rgba(255,255,255,0.3)] top-4 left-5"}
@@ -31,15 +35,10 @@ const Search = () => {
             onChange={({ target }) => setQuery(target.value)}
             placeholder={"Type to search"}
             className={
-              "border rounded-3xl px-14 py-4 text-white border-[rgba(255,255,255,0.2)] bg-transparent w-full"
+              "border rounded-3xl px-14 py-4 outline-none text-white border-[rgba(255,255,255,0.2)] bg-transparent w-full"
             }
             type='text'
           />
-          <div className='absolute top-0 cursor-pointer right-20 translate-y-5'>
-            {query && (
-              <FaTimes onClick={handleCleanSearch} fontSize={20} color='#fff' />
-            )}
-          </div>
           <div
             className={"absolute text-[rgba(255,255,255,0.3)] top-5   right-5"}
           >
@@ -54,11 +53,16 @@ const Search = () => {
         </form>
       </div>
       <button
+        onClick={() => setIsSearchOpen((prev) => !prev)}
         className={
-          "border rounded-full p-4 text-white lg:hidden border-[rgba(255,255,255,0.2)]"
+          "border rounded-full p-4 text-white md:hidden border-[rgba(255,255,255,0.2)]"
         }
       >
-        <RiSearch2Line fontSize={22} className={" "} />
+        {isSearchOpen ? (
+          <FaTimes />
+        ) : (
+          <RiSearch2Line fontSize={22} className={""} />
+        )}
       </button>
     </>
   );

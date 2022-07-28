@@ -5,4 +5,5 @@ export const queryKeys = {
   upcoming: "upcoming",
   review: "review",
   videos: "videos",
+  search: "search",
 };

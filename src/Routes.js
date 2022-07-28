@@ -11,6 +11,7 @@ import {
   Register,
   Rentals,
   SingleMoviePage,
+  SearchResult,
 } from "components/pages";
 
 const RouteProvider = ({ children }) => {
@@ -21,6 +22,7 @@ const RouteProvider = ({ children }) => {
       children: [
         { path: "/movies", element: <MoviePage /> },
         { path: "/movies/new", element: <MovieFormPage /> },
+        { path: "/movie/search/:slug", element: <SearchResult /> },
         { path: "/movie/:id", element: <SingleMoviePage /> },
         { path: "/customer", element: <CustomerPage /> },
         { path: "/login", element: <LoginPage /> },
