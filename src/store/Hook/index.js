@@ -9,3 +9,6 @@ export { default as useFetchVideos } from "./movie/useFetchVideos";
 export { default as useSearchMovie } from "./movie/useSearchMovie";
 export { default as useFetchMoviesCredit } from "./movie/useFetchMovieCredit";
 export { default as useFetchPerson } from "./person/useFetchPerson";
+export { default as useAuth } from "./auth/useAuth";
+export { default as useCreateSession } from "./auth/useCreateSession";
+export { default as useCreateToken } from "./auth/useCreateToken";

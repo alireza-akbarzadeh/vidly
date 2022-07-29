@@ -1,8 +1,13 @@
 import { Button, Input } from "components/atomes";
 import { useFormik } from "formik";
+import { toast } from "react-toastify";
+import { useAuth } from "store/Hook";
 import * as Yup from "yup";
+import { Loading } from "..";
 
-const Login = () => {
+const Login = ({ token }) => {
+  const authMuted = useAuth(token.request_token);
+  console.log(authMuted.data, "auth muted");
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -13,12 +18,22 @@ const Login = () => {
       password: Yup.string().required("Password  is Required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      const data = {
+        username: values.username,
+        password: values.password,
+        request_token: token.request_token,
+      };
+      authMuted.mutate(data);
     },
   });
 
   return (
     <div className='flex items-center justify-center min-h-[80vh] w-full'>
+      {authMuted.isLoading ? (
+        <Loading />
+      ) : authMuted.isError ? (
+        toast.error(authMuted.error.status_message)
+      ) : null}
       <form onSubmit={formik.handleSubmit} className='max-w-lg mx-auto w-full'>
         <Input
           placeholder='Enter username'

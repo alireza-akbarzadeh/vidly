@@ -8,4 +8,7 @@ export const queryKeys = {
   search: "search",
   person: "person",
   credit: "credit",
+  auth: "auth",
+  createSession: "createSession",
+  token: "token",
 };
