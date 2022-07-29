@@ -13,3 +13,4 @@ export { default as Videos } from "./videos";
 export { default as EffectMovie } from "./effectMovie";
 export { default as MovieCredit } from "./movieCredit";
 export { default as SingleMovieDetails } from "./singleMovieDetails";
+export { default as HeadSlide } from "./headSlider";

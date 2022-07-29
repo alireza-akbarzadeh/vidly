@@ -18,7 +18,7 @@ const Popular = () => {
       <>
         <InfiniteScroll
           loadMore={fetchNextPage}
-          className='grid grid-cols-4  gap-10 md:grid-cols-12 justify-center '
+          className='grid grid-cols-4  gap-10   sm:grid-cols-8 lg:grid-cols-12 justify-center '
           hasMore={hasNextPage}
         >
           {data?.pages?.map((pageData) =>

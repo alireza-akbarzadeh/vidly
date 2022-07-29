@@ -11,7 +11,7 @@ const EffectMovie = ({ item, handleOpenModal, isSearch }) => {
           ? () => navigate(`/movie/${item.id}`)
           : () => handleOpenModal(item.id)
       }
-      className={"col-span-3 relative group"}
+      className={"col-span-4 lg:col-span-3 relative group"}
     >
       <LazyLoadImage
         className='w-full h-full object-contain cursor-pointer rounded-2xl'

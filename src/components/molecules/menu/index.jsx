@@ -12,10 +12,8 @@ export default function App() {
   const { setIsSidebar, isSidebar } = useTheme();
   return (
     <aside
-      className={`border-r  z-[9999] fixed  overflow-y-scroll h-screen top-0 left-0 border-[rgba(255,255,255,0.1)] px-6 pt-8  sidebar ${
-        isSidebar
-          ? "block bg-gradient-to-r  from-bgPrimary to-[#1c2536]"
-          : "hidden  lg:block"
+      className={`border-r  z-[9999] fixed w-[300px]  overflow-y-scroll h-screen top-0 left-0 border-[rgba(255,255,255,0.1)] px-6 pt-8  sidebar ${
+        isSidebar ? "block bg-[#0c1216]" : "hidden  lg:block"
       }`}
     >
       <div
@@ -35,7 +33,6 @@ export default function App() {
             Vidly
           </span>
         </Link>
-        <UserInfo />
         <MenuItem title='Menu' data={Menu} />
         <MenuItem title='Category' data={Category} />
         <MenuItem title='Library' data={Library} />

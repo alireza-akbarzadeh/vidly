@@ -27,9 +27,10 @@ const SingleMovieDetails = ({ id, setIsReview }) => {
               />
               <div
                 onClick={() => setPlayTrailer(true)}
-                className='absolute inset-[50%] cursor-pointer translate-x-[-50%] translate-y-[-50%] bg-bgSameColor w-20  h-20 flex items-center justify-center rounded-full'
+                className='absolute inset-[50%] cursor-pointer translate-x-[-50%] translate-y-[-50%] bg-bgSameColor
+                w-14 h-14 md:w-20  md:h-20 flex items-center justify-center rounded-full'
               >
-                <FaPlay fontSize={25} color='#faf8f9' />
+                <FaPlay className='text-base md:text-lg' color='#faf8f9' />
               </div>
             </>
           )}

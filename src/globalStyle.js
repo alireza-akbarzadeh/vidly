@@ -57,9 +57,11 @@ body::-webkit-scrollbar-thumb {
     rgba(61, 41, 65, 1) 100%
   );
 }
-
-
-
+${
+  "" /* .slick-slide {
+  margin: 0 15px;
+} */
+}
 `;
 
 export default GlobalStyle;
