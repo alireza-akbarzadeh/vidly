@@ -1,4 +1,4 @@
-import { HiHome } from "react-icons/hi";
+import { HiHome, HiTrendingUp } from "react-icons/hi";
 import { RiMovie2Fill, RiSlideshow3Fill } from "react-icons/ri";
 import { AiFillShopping, AiFillStar, AiOutlineLogout } from "react-icons/ai";
 import {
@@ -162,6 +162,17 @@ export const Category = [
     id: 3,
     icons: (active) => (
       <BsPatchCheckFill
+        fontSize={20}
+        className={active ? `text-blue-800` : "text-gray-400 opacity-40"}
+      />
+    ),
+  },
+  {
+    name: "Trending",
+    to: "/dashboard/trending",
+    id: 3,
+    icons: (active) => (
+      <HiTrendingUp
         fontSize={20}
         className={active ? `text-blue-800` : "text-gray-400 opacity-40"}
       />
