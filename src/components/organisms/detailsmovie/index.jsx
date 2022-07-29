@@ -26,7 +26,7 @@ const DetailsMovie = ({ id, page = "popular" }) => {
           <ul className='space-y-3'>
             <li>
               <Link
-                to={`/movie/${id}`}
+                to={`/dashboard/movie/${id}`}
                 className='flex items-center gap-3 group cursor-pointer'
               >
                 <h3 className='text-base md:text-2xl text-gray-100 font-semibold'>

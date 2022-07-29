@@ -81,7 +81,7 @@ const MovieSlide = ({ data, title }) => {
         </div>
         <Link
           className={"text-md text-gray-200 opacity-40"}
-          to={"/movie/popular"}
+          to={"/dashboard/movie/popular"}
         >
           See All
         </Link>

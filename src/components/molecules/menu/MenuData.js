@@ -18,7 +18,7 @@ import { MdDownload, MdOutlinePresentToAll } from "react-icons/md";
 export const Menu = [
   {
     name: "Home",
-    to: "/",
+    to: "/dashboard",
     id: 1,
     icons: (active) => (
       <HiHome
@@ -29,7 +29,7 @@ export const Menu = [
   },
   {
     name: "Community",
-    to: "/community",
+    to: "/dashboard/community",
     id: 2,
     icons: (active) => (
       <BsShieldFillCheck
@@ -40,7 +40,7 @@ export const Menu = [
   },
   {
     name: "Discover",
-    to: "/discover",
+    to: "/dashboard/discover",
     id: 3,
     icons: (active) => (
       <SiPytorchlightning
@@ -51,7 +51,7 @@ export const Menu = [
   },
   {
     name: "Awards",
-    to: "/awards",
+    to: "/dashboard/awards",
     id: 4,
     icons: (active) => (
       <BsFillAwardFill
@@ -62,7 +62,7 @@ export const Menu = [
   },
   {
     name: "Celeb",
-    to: "/celeb",
+    to: "/dashboard/celeb",
     id: 5,
     icons: (active) => (
       <FaUser
@@ -76,7 +76,7 @@ export const Menu = [
 export const Library = [
   {
     name: "Recent",
-    to: "/Recent",
+    to: "/dashboard/Recent",
     id: 1,
     icons: (active) => (
       <MdOutlinePresentToAll
@@ -87,7 +87,7 @@ export const Library = [
   },
   {
     name: "To Rated",
-    to: "/top-rated",
+    to: "/dashboard/top-rated",
     id: 2,
     icons: (active) => (
       <AiFillStar
@@ -98,7 +98,7 @@ export const Library = [
   },
   {
     name: "Download",
-    to: "/download",
+    to: "/dashboard/download",
     id: 3,
     icons: (active) => (
       <MdDownload
@@ -112,7 +112,7 @@ export const Library = [
 export const General = [
   {
     name: "Setting",
-    to: "/setting",
+    to: "/dashboard/setting",
     id: 1,
     icons: (active) => (
       <TbSettingsAutomation
@@ -123,7 +123,7 @@ export const General = [
   },
   {
     name: "Log out",
-    to: "/logout",
+    to: "/dashboard/logout",
     id: 2,
     icons: (active) => (
       <AiOutlineLogout
@@ -136,7 +136,7 @@ export const General = [
 export const Category = [
   {
     name: "Tv Show",
-    to: "/tv-show",
+    to: "/dashboard/tv-show",
     id: 1,
     icons: (active) => (
       <RiSlideshow3Fill
@@ -147,7 +147,7 @@ export const Category = [
   },
   {
     name: "Movie",
-    to: "/movies",
+    to: "/dashboard/movies",
     id: 2,
     icons: (active) => (
       <RiMovie2Fill
@@ -158,7 +158,7 @@ export const Category = [
   },
   {
     name: "Anime",
-    to: "/anime",
+    to: "/dashboard/anime",
     id: 3,
     icons: (active) => (
       <BsPatchCheckFill
@@ -170,7 +170,7 @@ export const Category = [
 
   {
     name: "Rentals",
-    to: "/rentals",
+    to: "/dashboard/rentals",
     id: 5,
     icons: (active) => (
       <TbLayoutDistributeHorizontal

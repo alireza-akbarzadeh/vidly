@@ -57,7 +57,7 @@ const HeadSlide = ({ data }) => {
     <Slider {...settings}>
       {data?.map((pop) => (
         <Link
-          to={`/movie/${pop.id}`}
+          to={`/dashboard/movie/${pop.id}`}
           key={pop.id}
           className='h-[700px] w-full cursor-pointer'
         >

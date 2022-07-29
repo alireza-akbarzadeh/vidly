@@ -39,7 +39,6 @@ const Card = ({
             <h3 className='text-gray-300'>{title ? title : "Not exist"}</h3>
             <div
               onClick={handWatchList}
-              to={`/movie/${id}`}
               className='bg-[#242323]  flex justify-center gap-3 items-center py-2 rounded-lg'
             >
               {isWatchList ? (
@@ -51,7 +50,7 @@ const Card = ({
             </div>
             <div className='flex items-center  justify-between'>
               <Link
-                to={`/movie/${id}`}
+                to={`/dashboard/movie/${id}`}
                 className=' inline-flex  hover:bg-[#242323]  px-3 pt-2  transition-all ease-in-out duration-300 rounded-md items-center gap-2'
               >
                 <FaPlay className='text-gray-400' />
