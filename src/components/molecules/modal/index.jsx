@@ -2,10 +2,11 @@ import { useEffect, useState, useRef } from "react";
 import Portal from "container/portal";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { Button } from "components/atomes";
 
 const Backdrop = styled.div`
   position: fixed;
-  z-index: 99;
+  z-index: 99999;
   top: 0;
   right: 0;
   bottom: 0;
@@ -44,7 +45,7 @@ const Content = styled.div`
   padding: 20px;
   box-sizing: border-box;
   margin: 5px;
-  max-width: 1200px;
+  max-width: 750px;
   max-height: 100%;
   border-radius: 1rem;
   overflow-y: auto;
@@ -92,7 +93,10 @@ const Modal = ({ onClose, open, locked, children }) => {
     open && (
       <Portal className={"modal-portal"}>
         <Backdrop ref={backdrop} className={active && open && "active"}>
-          <Content className='modal-content bg-gradient-to-r from-bgPrimary to-[#1c2536]'>
+          <Content className='modal-content bg-[#0c1216]'>
+            <div className='text-right'>
+              <Button onClick={onClose} variant={"danger"} label={"Close"} />
+            </div>
             {children}
           </Content>
         </Backdrop>

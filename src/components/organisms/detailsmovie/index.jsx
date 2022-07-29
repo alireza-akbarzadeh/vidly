@@ -1,107 +1,97 @@
-import { Button } from "components/atomes";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { AiOutlineCheck } from "react-icons/ai";
+import { FaChevronRight, FaCircle, FaPlus, FaStar } from "react-icons/fa";
+import { RiThumbDownFill, RiThumbDownLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import { useFetchDetailsMovies } from "store/Hook";
+import { convertTime } from "utils";
 
 const DetailsMovie = ({ id, page = "popular" }) => {
+  const [like, setLike] = useState(false);
+  const [isWatchList, setIsWatchList] = useState(false);
+  const handWatchList = () => setIsWatchList((prev) => !prev);
+  const handleLike = () => setLike((prev) => !prev);
   const { data: details, isLoading } = useFetchDetailsMovies(id);
-  const navigate = useNavigate();
   return (
     !isLoading && (
-      <div className={"flex flex-col md:flex-row justify-between gap-10"}>
-        <div className={" w-full"}>
-          <img
-            className={"rounded-lg   w-full h-full object-contain"}
-            src={`${process.env.REACT_APP_API_IMG}/${details.poster_path}`}
-            alt={details.original_title}
-          />
-        </div>
-        <div>
-          <ul className='flex flex-col gap-3'>
-            <li className='inline-flex gap-3'>
-              <h3 className='text-base md:text-lg text-gray-100 font-semibold'>
-                {details.original_title}
-              </h3>
-            </li>
+      <div className={""}>
+        <div className='flex items-start gap-5'>
+          <div className={"w-[300px] h-[300px]"}>
+            <img
+              className={"rounded-lg   w-full h-full object-fill"}
+              src={`${process.env.REACT_APP_API_IMG}/${details.poster_path}`}
+              alt={details.original_title}
+            />
+          </div>
+          <ul className='space-y-3'>
             <li>
-              <p className='leading-7  mt-3 capitalize text-base  text-gray-300 font-medium'>
-                {details.overview}
-              </p>
-            </li>
-            <li>
-              <span className='text-gray-300'>budget : </span>
-              <span className='text-green-400'>
-                {details.budget.toLocaleString()} $
-              </span>{" "}
-            </li>
-            <li>
-              <span className='text-gray-300'>Genre : </span>
-              {details.genres?.map((genre) => (
-                <p className='inline-flex  text-gray-200' key={genre.id}>
-                  <span className='mr-'>{genre.name}</span>
-                </p>
-              ))}
-            </li>
-            <li>
-              <span className='text-gray-300'>Language :</span>
-              <span className='text-gray-100 ml-2'>
-                {details.original_language}
-              </span>
-            </li>
-            <li>
-              <span className='text-gray-300'>View ON :</span>
-              <a
-                className='text-yellow-500 font-semibold ml-2'
-                rel='noreferrer'
-                target={"_blank"}
-                href={`https://www.imdb.com/title/${details.imdb_id}`}
+              <Link
+                to={`/movie/${id}`}
+                className='flex items-center gap-3 group cursor-pointer'
               >
-                IMDB
-              </a>
+                <h3 className='text-base md:text-2xl text-gray-100 font-semibold'>
+                  {details.original_title}
+                </h3>
+                <FaChevronRight className='text-2xl text-gray-200 mt-2 group-hover:text-yellow-400' />
+              </Link>
             </li>
-            <li>
-              <a
-                className='text-sky-500 font-semibold'
-                rel='noreferrer'
-                target={"_blank"}
-                href={`${details.homepage}`}
-              >
-                Home Page
-              </a>
-            </li>
-            <li>
-              <span className='text-gray-300'> Released Data :</span>
+            <li className='space-x-2 inline-flex items-center'>
+              <span className='text-gray-200 ml-2'>{details.release_date}</span>
+              <FaCircle color='#fff' fontSize={4} />
               <span className='text-gray-200 ml-2'>
-                {" "}
-                {details.release_date}
+                {convertTime(details.runtime)}
               </span>
+              <FaCircle color='#fff' fontSize={4} />
+              <span className='text-gray-200 ml-2'>PG</span>
             </li>
-            <li>
-              <span className='text-gray-300'> status :</span>
-              <span className='ml-2 text-gray-200'>{details.status}</span>
-            </li>
-            <li className='inline-flex gap-3 items-center'>
-              <span className='text-gray-300'> Rate :</span>
-              <span className='bg-sky-500 w-7 h-7  text-white rounded-full flex items-center justify-center'>
-                {details.vote_average.toFixed()}
-              </span>
-            </li>
-            <li>
-              <span className='text-gray-300'>Made in :</span>
-              {details.production_countries?.map((item, i) => (
-                <span className='text-white ml-2' key={i}>
-                  {item.name}
-                </span>
+            <li className='space-x-3  text-gray-300'>
+              {details.genres?.map((genre) => (
+                <>
+                  <span
+                    className=' after:inline-block after:ml-2 after:bg-slate-100 after:w-1 after:h-1 after:rounded-full'
+                    key={genre.id}
+                  >
+                    {genre.name}
+                  </span>
+                </>
               ))}
             </li>
-            {page === "popular" && (
-              <li className='text-right'>
-                <Button
-                  onClick={() => navigate(`/movie/${details.id}`)}
-                  label={"More Info"}
-                />
-              </li>
-            )}
+            <li className='inline-flex gap-1 items-center'>
+              <FaStar className='text-lg text-yellow-400' />
+              <span className='text-gray-200'>
+                {details.vote_average} / {""}
+                <span className='opacity-25'>10</span>
+              </span>
+            </li>
           </ul>
+        </div>
+        <div className='space-y-8'>
+          <p className='leading-7  mt-3 capitalize text-base  text-gray-300 font-medium'>
+            {details.overview}
+          </p>
+          <div className='flex gap-3'>
+            <div
+              onClick={handWatchList}
+              className='bg-[#242323] cursor-pointer hover:bg-[#292727] transition-all ease-in-out duration-300 flex-grow  flex justify-center gap-3 items-center py-2 rounded-lg'
+            >
+              {isWatchList ? (
+                <AiOutlineCheck className=' text-blue-400  text-lg' />
+              ) : (
+                <FaPlus className=' text-blue-400  text-lg' />
+              )}
+              <span className=' text-blue-400 font-semibold'>Watch List</span>
+            </div>
+            <div
+              onClick={handleLike}
+              className='bg-[#242323]  w-24 cursor-pointer flex hover:bg-[#292727] transition-all ease-in-out duration-300 justify-center gap-3 items-center py-2 rounded-lg'
+            >
+              {like ? (
+                <RiThumbDownFill className='text-2xl text-blue-400' />
+              ) : (
+                <RiThumbDownLine className='text-2xl text-blue-400' />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     )

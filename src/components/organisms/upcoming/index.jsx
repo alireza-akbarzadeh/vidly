@@ -5,7 +5,7 @@ import MovieSlide from "../MovieSlide";
 const UpComingMovie = () => {
   const { data, isLoading } = useUpComingMovieVertical();
 
-  return !isLoading && <MovieSlide title={"Up Coming"} data={data.results} />;
+  return !isLoading && <MovieSlide title={"Up Coming"} data={data?.results} />;
 };
 
 export default UpComingMovie;
