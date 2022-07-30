@@ -7,15 +7,7 @@ import DetailsModal from "../detailsModal";
 import { AiOutlineCheck } from "react-icons/ai";
 import { BsBookmarkCheckFill, BsBookmarkPlus } from "react-icons/bs";
 
-const Card = ({
-  img,
-  id,
-  title,
-  rate,
-  className,
-  isHoverCard = true,
-  ...rest
-}) => {
+const Card = ({ img, id, title, rate, className, ...rest }) => {
   const [isWatchList, setIsWatchList] = useState(false);
   const handWatchList = () => setIsWatchList((prev) => !prev);
   const [open, setOpen] = useState(false);

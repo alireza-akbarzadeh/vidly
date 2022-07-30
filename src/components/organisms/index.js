@@ -14,3 +14,8 @@ export { default as EffectMovie } from "./effectMovie";
 export { default as MovieCredit } from "./movieCredit";
 export { default as SingleMovieDetails } from "./singleMovieDetails";
 export { default as HeadSlide } from "./headSlider";
+export { default as PopularTv } from "./popularTv";
+export { default as TVOnAir } from "./tvOnAir";
+export { default as TvTopRated } from "./tvTopRated";
+export { default as TVAiringToday } from "./TVAiringToday";
+export { default as TVLatests } from "./TVLatests";

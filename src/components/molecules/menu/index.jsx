@@ -2,9 +2,7 @@ import React from "react";
 
 import * as Images from "constant/images";
 import MenuItem from "./MenuItem";
-import UserInfo from "../userInfo";
 
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTheme } from "context/ThemeContext";
 import { Category, General, Library, Menu } from "./MenuData";

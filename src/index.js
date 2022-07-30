@@ -7,7 +7,7 @@ import queryClient from "store/queryClient";
 
 import { QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
-
+import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
@@ -18,12 +18,14 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <MovieProvider>
-          <App />
-        </MovieProvider>
-        <ToastContainer />
-      </ThemeProvider>
+      <HelmetProvider>
+        <ThemeProvider>
+          <MovieProvider>
+            <App />
+          </MovieProvider>
+          <ToastContainer />
+        </ThemeProvider>
+      </HelmetProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

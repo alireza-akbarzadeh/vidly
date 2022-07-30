@@ -14,6 +14,7 @@ const MovieTemplate = () => {
       >
         <Navbar />
         <Outlet />
+        <div className='h-24 w-full' />
       </main>
     </div>
   );

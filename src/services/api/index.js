@@ -12,3 +12,8 @@ export { default as fetchPerson } from "./person/fetchPerson";
 export { default as createSession } from "./auth/createSession";
 export { default as createToken } from "./auth/createToken";
 export { default as auth } from "./auth/auth";
+export { default as fetchLatestTv } from "./tv/fetchLatestTv";
+export { default as fetchPopularTv } from "./tv/fetchPopularTv";
+export { default as fetchTopRated } from "./tv/fetchTopRated";
+export { default as fetchTVONTHEAIR } from "./tv/fetchTVONTHEAIR";
+export { default as fetchAiringToday } from "./tv/fetchAiringToday";

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const HeadSlide = ({ data }) => {
+const HeadSlide = ({ data, page }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const SampleNextArrow = (props) => {
     const { onClick } = props;
@@ -47,7 +47,7 @@ const HeadSlide = ({ data }) => {
         <div
           className={`bg-white ${
             i === currentSlide && "bg-bgSameColor"
-          } w-3 h-3 mt-3 cursor-pointer hover:scale-125 transition-all ease-in-out duration-300  rounded-full`}
+          } md:w-3 md:h-3 w-2 h-2 my-10 md:my-2 cursor-pointer hover:scale-125 transition-all ease-in-out duration-300   rounded-full`}
         />
       );
     },
@@ -57,7 +57,7 @@ const HeadSlide = ({ data }) => {
     <Slider {...settings}>
       {data?.map((pop) => (
         <Link
-          to={`/dashboard/movie/${pop.id}`}
+          to={`/dashboard/${page}/${pop.id}`}
           key={pop.id}
           className='h-[700px] w-full cursor-pointer'
         >

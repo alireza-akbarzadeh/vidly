@@ -8,7 +8,7 @@ import { HiOutlineChevronRight, HiOutlineChevronLeft } from "react-icons/hi";
 import styled from "styled-components";
 
 const SliderContainer = styled(Slider)``;
-const MovieSlide = ({ data, title }) => {
+const MovieSlide = ({ data, title, type }) => {
   const SampleNextArrow = (props) => {
     const { onClick } = props;
     return (
@@ -72,7 +72,7 @@ const MovieSlide = ({ data, title }) => {
   // width <= 500 ? 1 : width <= 900 ? 3 : width >= 900 && 6
   return (
     <>
-      <div className={"flex justify-between items-center mt-14"}>
+      <div className={"flex justify-between items-center mt-20"}>
         <div className=' border-l-4 flex items-center gap-1 border-l-bgSameColor pl-3'>
           <h3 className={"text-lg md:text-xl text-white font-medium "}>
             {title}
@@ -91,7 +91,7 @@ const MovieSlide = ({ data, title }) => {
           <Card
             key={item.id}
             id={item.id}
-            title={item.original_title}
+            title={type === "tv" ? item.name : item.original_title}
             img={item.poster_path}
             rate={item.vote_average}
           />

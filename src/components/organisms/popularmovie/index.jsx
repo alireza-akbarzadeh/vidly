@@ -5,6 +5,6 @@ import HeadSlide from "../headSlider";
 const PopularMovie = () => {
   const { data: popular, isLoading } = useFetchPopularVertical();
 
-  return !isLoading && <HeadSlide data={popular.results} />;
+  return !isLoading && <HeadSlide page='movie' data={popular.results} />;
 };
 export default PopularMovie;

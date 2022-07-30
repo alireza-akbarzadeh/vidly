@@ -12,3 +12,8 @@ export { default as useFetchPerson } from "./person/useFetchPerson";
 export { default as useAuth } from "./auth/useAuth";
 export { default as useCreateSession } from "./auth/useCreateSession";
 export { default as useCreateToken } from "./auth/useCreateToken";
+export { default as useLatestTv } from "./tv/useLatestTv";
+export { default as usePopularTv } from "./tv/usePopularTv";
+export { default as useTopRatedTv } from "./tv/useTopRatedTv";
+export { default as useTvOnTheAir } from "./tv/useTvOnTheAir";
+export { default as useAiringToday } from "./tv/useAiringToday";

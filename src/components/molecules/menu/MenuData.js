@@ -170,7 +170,7 @@ export const Category = [
   {
     name: "Trending",
     to: "/dashboard/trending",
-    id: 3,
+    id: 4,
     icons: (active) => (
       <HiTrendingUp
         fontSize={20}

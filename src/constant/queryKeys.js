@@ -11,4 +11,9 @@ export const queryKeys = {
   auth: "auth",
   createSession: "createSession",
   token: "token",
+  popular_Tv: "popular-tv",
+  latest_Tv: "latest-Tv",
+  top_Rated_Tv: "top-Rated-Tv",
+  tv_ON_THE_AIR: "tv-ON-THE-AIR",
+  AiringToday: "AiringToday",
 };
